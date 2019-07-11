@@ -1,9 +1,38 @@
 package main
 
-import "fmt"
-import "reflect" // Esse pacote utiliza uma função chamada TypeOf.
+import (
+	"fmt"
+	"math"
+	"reflect"
+)
 
 func main() {
+	const PI float64 = 3.14
+	var raio = 3.2 // Tipo (float64) inferido pelo compilador
+
+	// forma reduzida de criar uma variavel
+	area := PI * math.Pow(raio, 2)
+	fmt.Println("A area da circunferência é:", area)
+
+	const (
+		a = 1
+		b = 2
+	)
+	fmt.Println(a, b)
+
+	var (
+		c = 3
+		d = 4
+	)
+	fmt.Println(c, d)
+
+	var e, f bool = true, false
+	fmt.Println(e, f)
+
+	g, h, i := 2, false, "epa!"
+	fmt.Println(g, h, i)
+
+
 
 	nome := "Rui"
 	idade := 31
@@ -22,7 +51,7 @@ func main() {
 
 	var comando int
 	// fmt.Scanf("%d", &comando)
-	// Função Scan, permite que eu apenas passe a variável como parâmetro, 
+	// Função Scan, permite que eu apenas passe a variável como parâmetro,
 	// pois eu já defini o tipo dela
 	fmt.Scan(&comando)
 	fmt.Println("O endereço da minha variável comando é:", &comando)
