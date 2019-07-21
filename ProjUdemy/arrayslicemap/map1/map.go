@@ -1,6 +1,8 @@
 package main
 
-func main(){
+import "fmt"
+
+func main() {
 
 	// var aprovados map[int]string
 	// mapas devem ser inicializados
@@ -13,10 +15,8 @@ func main(){
 	for cpf, nome := range aprovados {
 		fmt.Printf("%s (CPF: %d)\n", nome, cpf)
 	}
-	
+
 	fmt.Println(aprovados[95135745682])
 	delete(aprovados, 95135745682)
 	fmt.Println(aprovados[95135745682])
-} 
-
 }
