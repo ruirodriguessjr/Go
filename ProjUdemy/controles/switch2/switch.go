@@ -5,18 +5,32 @@ import (
 	"time"
 )
 
+// Interfaces são nomeadas coleções de assinaturas de métodos.
+func tipo(i interface{}) string {
+	switch i.(type) {
+	case int:
+		return "inteiro"
+	case float32, float64:
+		return "real"
+	case string:
+		return "string"
+	case func():
+		return "função"
+	default:
+		return "não sei"
+	}
+}
+
 func main() {
 
-	t := time.Now()
+	fmt.Println(tipo(2.3))
 
-	switch { // Semre que eu não passar condição no meu switch, 
-		//ele busca a condição True
-	case t.Hour() < 12:
-		fmt.Println("Bom dia...")
-	case t.Hour() < 18:
-		fmt.Println("Boa tarde...")
-	default:
-		fmt.Println("Boa noite...")
-	}
+	fmt.Println(tipo(1))
+
+	fmt.Println(tipo("Opa"))
+
+	fmt.Println(tipo(func() {}))
+
+	fmt.Println(tipo(time.Now()))
 
 }
