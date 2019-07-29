@@ -4,19 +4,19 @@ import "fmt"
 
 func main() {
 
-	// Inicialização de um map 
-	// com os tipos correspondentes dos retornos solicitados
-	funcsESalarios := map[string]float64{
-		"José João": 11325.45,
-		"Gabriela Silva": 15456.78,
-		"Pedro Junior": 1200.0,
+	// var aprovados map[int]string
+	// mapas devem ser inicializados
+	aprovados := make(map[int]string)
+	aprovados[12345678978] = "Maria"
+	aprovados[98765432100] = "Pedro"
+	aprovados[95135745682] = "Ana"
+	fmt.Println(aprovados)
 
- 	}
+	for cpf, nome := range aprovados {
+		fmt.Printf("%s (CPF: %d)\n", nome, cpf)
+	}
 
-	funcsESalarios["Rafael Filho"] = 1350.0
-	delete(funcsESalarios, "Inexistente")
-	for nome, salario := range funcsESalarios {
-		fmt.Println("========================")
-		fmt.Println("Nome: ", nome, "\nSalario: ", salario)
- 	}
+	fmt.Println(aprovados[95135745682])
+	delete(aprovados, 95135745682)
+	fmt.Println(aprovados[95135745682])
 }

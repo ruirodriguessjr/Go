@@ -16,7 +16,7 @@ import (
 // Retorna para o meu sistema operacional que ele saiu com sucesso
 //Pacote com funções prontas, onde faz GET, POST, essa configuração, acesso web
 // Pacote para manipulação de tempo.
-// Pacote io/ioutil implementa algumas funções de utilitário de Eentrada e Saída de dados
+// Pacote io/ioutil implementa algumas funções de utilitário de Entrada e Saída de dados
 
 // Contantes são valores imutáveis,
 // onde no caso estou usando para deixar meu codigo mais legível,
