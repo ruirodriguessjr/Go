@@ -11,13 +11,12 @@ func obterValorAprovado(numero int) int {
 	}
 	fmt.Println("Valor baixo...")
 	return numero
-	
 
 }
 
 func main() {
 
- fmt.Println(obterValorAprovado(6000))
- fmt.Println(obterValorAprovado(3000))
+	fmt.Println(obterValorAprovado(6000))
+	fmt.Println(obterValorAprovado(3000))
 
 }

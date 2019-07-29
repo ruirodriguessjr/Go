@@ -3,19 +3,17 @@ package main
 import "fmt"
 
 type item struct {
-
 	produtoID int
-	qtde int
-	preco float64
-
+	qtde      int
+	preco     float64
 }
 type pedido struct {
-
 	userID int
-	itens []item
+	itens  []item // slice de itens (vários itens dentro do pedido)
 
 }
 
+// Método: função com receiver (receptor)
 func (p pedido) valorTotal() float64 {
 
 	total := 0.0
@@ -37,9 +35,8 @@ func main() {
 			item{2, 1, 23.49},
 			item{11, 100, 3.13},
 		},
+	}
 
- 	}
-
- 	fmt.Printf("Valor total do pedido é R$ %.2f", pedido.valorTotal())
+	fmt.Printf("Valor total do pedido é R$ %.2f", pedido.valorTotal())
 
 }

@@ -13,7 +13,7 @@ func fatorial(n int) (int, error) {
 		fatorialAnterior, _ := fatorial(n - 1)
 		return n * fatorialAnterior, nil
 
-}
+	}
 
 }
 
@@ -26,6 +26,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 
-}
- // Uma solução melhor seria... uint!
+	}
+	// Uma solução melhor seria... uint!
 }

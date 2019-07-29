@@ -10,7 +10,7 @@ func fatorial(n uint) uint {
 	default:
 		return n * fatorial(n-1)
 
-	}	
+	}
 
 }
 
@@ -20,4 +20,5 @@ func main() {
 	fmt.Println(resultado)
 
 }
- // Uma solução melhor seria... uint!
+
+// Uma solução melhor seria... uint!
