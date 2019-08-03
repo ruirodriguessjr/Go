@@ -1,10 +1,20 @@
 package main
 
 import (
+<<<<<<< HEAD
 	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
+=======
+	// O pacote json implementa a codificação e a decodificação de JSON
+	"log"      //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
+	"net/http" // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
+	// Pacote aritmético/ rand gera número aleatório
+	// O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
+
+	"github.com/gorilla/mux" // Dependência do MUX
+>>>>>>> a18ed3d4682c9bbf4fa418ab133001d88488439b
 )
 
 // Author Struct
@@ -13,9 +23,12 @@ type Author struct {
 	Lastname  string `json:"lastname"`
 }
 
+<<<<<<< HEAD
 // Init Books var as a slice Book struct
 var books []Book
 
+=======
+>>>>>>> a18ed3d4682c9bbf4fa418ab133001d88488439b
 // Book Struct (Model)
 type Book struct {
 	ID     string  `json:"id"`
