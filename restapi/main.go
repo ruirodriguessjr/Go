@@ -17,6 +17,9 @@ type Author struct {
 	Lastname  string `json:"lastname"`
 }
 
+// Init Books var as a slice Book struct
+var books []Book
+
 // Book Struct (Model)
 type Book struct {
 	ID     string  `json:"id"`
@@ -24,9 +27,6 @@ type Book struct {
 	Title  string  `json:"title"`
 	Author *Author `json:"author"`
 }
-
-// Init books var as a slice Book Struct
-var books []Book
 
 // Get All Books
 func getBooks(w http.ResponseWriter, r *http.Request) {
