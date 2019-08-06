@@ -5,8 +5,8 @@ import (
 	"log"           //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
 	"net/http"      // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
 
-	// Pacote aritmético/ rand gera número aleatório
-	// O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
+	"math/rand" // Pacote aritmético/ rand gera número aleatório
+	"strconv"   // O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
 
 	"github.com/gorilla/mux" // Dependência do MUX
 )
@@ -31,6 +31,8 @@ type Book struct {
 // Get All Books
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	// NewEncoder e Encode eu estou escrevendo o meu responde
+	// Dentro do meu objeto passando pelo formato Json
 	json.NewEncoder(w).Encode(books)
 }
 
@@ -51,17 +53,43 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 
 // Create a New Book
 func createBook(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("Content-Type", "application/json")
+	var book Book
+	_ = json.NewDecoder(r.Body).Decode((&book))
+	book.ID = strconv.Itoa(rand.Intn(10000000)) //Mock ID = not safe
+	books = append(books, book)
+	json.NewEncoder(w).Encode(book)
 }
 
 //Update Book
 func updateBook(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	for index, item := range books {
+		if item.ID == params["id"] {
+			books = append(books[:index], books[index+1:]...)
+			var book Book
+			_ = json.NewDecoder(r.Body).Decode((&book))
+			book.ID = params["id"]
+			books = append(books, book)
+			json.NewEncoder(w).Encode(book)
+			return
+		}
+	}
+	json.NewEncoder(w).Encode(books)
 }
 
 // Delete Book
 func deleteBook(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	for index, item := range books {
+		if item.ID == params["id"] {
+			books = append(books[:index], books[index+1:]...)
+			break
+		}
+	}
+	json.NewEncoder(w).Encode(books)
 }
 
 func main() {
