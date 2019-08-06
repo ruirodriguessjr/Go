@@ -10,6 +10,7 @@ type pessoa struct {
 	sobrenome string
 }
 
+// Função como se fosse instanciar o objeto
 func (p pessoa) getNomeCompleto() string {
 
 	return p.nome + " " + p.sobrenome

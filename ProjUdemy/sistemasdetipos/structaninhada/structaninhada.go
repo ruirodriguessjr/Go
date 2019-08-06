@@ -13,6 +13,7 @@ type pedido struct {
 
 }
 
+// Função como se fosse instanciar o objeto
 // Método: função com receiver (receptor)
 func (p pedido) valorTotal() float64 {
 
@@ -32,8 +33,8 @@ func main() {
 		userID: 1,
 		itens: []item{
 			item{produtoID: 1, qtde: 2, preco: 12.10},
-			item{2, 1, 23.49},
-			item{11, 100, 3.13},
+			item{produtoID: 2, qtde: 1, preco: 23.49},
+			item{produtoID: 11, qtde: 100, preco: 3.13},
 		},
 	}
 
