@@ -17,10 +17,11 @@ func (p pessoa) getNomeCompleto() string {
 }
 
 func (p *pessoa) setNomeCompleto(nomeCompleto string) {
-
+	//nomeCompleto = "Rui Rodrigues"
 	partes := strings.Split(nomeCompleto, " ")
 	p.nome = partes[0]
 	p.sobrenome = partes[1]
+	//fmt.Println(p.nome, p.sobrenome)
 
 }
 
