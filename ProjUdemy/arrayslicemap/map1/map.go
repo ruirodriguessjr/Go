@@ -17,6 +17,8 @@ func main() {
 	}
 
 	fmt.Println(aprovados[95135745682])
+
+	// Excluindo o valor de um map, passando os parâmetros dos valores a serem retornados
 	delete(aprovados, 95135745682)
 	fmt.Println(aprovados[95135745682])
 }

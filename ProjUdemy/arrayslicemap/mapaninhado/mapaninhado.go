@@ -17,7 +17,7 @@ func main() {
 		},
 	}
 
-	delete(funcsPorLetra, "P")
+	delete(funcsPorLetra, "Gabriela Silva")
 
 	for letra, funcs := range funcsPorLetra {
 		fmt.Println(letra, funcs)
