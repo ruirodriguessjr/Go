@@ -1,18 +1,32 @@
-/* app.go */
-
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type app []string
+type MyBoxItem struct {
+	Name string
+}
 
-func (a app) print() {
-	for i, app := range a {
-		fmt.Println(i, app)
-	}
+type MyBox struct {
+	Items []MyBoxItem
+}
+
+func (box *MyBox) AddItem(item MyBoxItem) []MyBoxItem {
+	box.Items = append(box.Items, item)
+	return box.Items
 }
 
 func main() {
-	apps := app{"Facebook", "Instagram", "WhatsApp"}
-	apps.print()
+
+	item1 := MyBoxItem{Name: "Test Item 1"}
+	item2 := MyBoxItem{Name: "kkkkkkk"}
+
+	items := []MyBoxItem{}
+	box := MyBox{items}
+
+	box.AddItem(item1)
+	box.AddItem(item2)
+
+	fmt.Println(len(box.Items))
 }
