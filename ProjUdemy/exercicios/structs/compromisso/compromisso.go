@@ -19,6 +19,10 @@ type compromisso struct {
 
 func main() {
 
+	//var c compromisso
+
+	d := compromisso{data: data{dataEspecifica: "19/01/1988"}, horario: horario{horaEspecifica: "16:35:44"}}
+	fmt.Println(d)
 	var c compromisso
 
 	c.dataEspecifica = "19/01/1988"
