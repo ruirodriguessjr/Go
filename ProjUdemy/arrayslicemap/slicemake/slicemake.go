@@ -23,7 +23,7 @@ func main() {
 	// Mostrando que a capacidade é aumentada automaticamente quando atingimos seu máximo inicializado
 	d := make([]int, 0, 10)
 	fmt.Println(len(d), cap(d))
-	for i := 0; cap(d)<100; i++{
+	for i := 0; cap(d) < 100; i++ {
 		d = append(d, i)
 		fmt.Println(d, len(d), cap(d))
 	}
