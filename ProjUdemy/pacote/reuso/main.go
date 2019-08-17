@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/PacoteGo/area"
+	"github.com/ruirodriguessjr/area"
 	// Pacote area é buscado dentro do caminho de importação de dependência acima
 )
 
