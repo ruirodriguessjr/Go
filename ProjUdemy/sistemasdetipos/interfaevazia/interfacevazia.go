@@ -12,11 +12,13 @@ func main() {
 	// eu posso fazer com que esse meu objeto/variável
 	// receba todos os métodos daquela interface em questão
 	var coisa interface{}
-
 	fmt.Println(coisa)
+
 	coisa = 3
 	fmt.Println(coisa)
 
+	// Interface Vazia, pode receber parâmetros genéricos,
+	// inserindo dados a partir da criação de itens associados à ela
 	type dinamico interface{}
 
 	var coisa2 dinamico = "Opa"

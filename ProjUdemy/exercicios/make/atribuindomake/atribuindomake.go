@@ -14,7 +14,7 @@ func main() {
 	delete(m, "Answer")
 	fmt.Println("The value:", m["Answer"])
 
-	// ok, me responde de maneira boolean 
+	// ok, me responde de maneira boolean
 	//caso ele tenha valor dentro da chave ou não.(Multiplo retorno)
 	// Quando eu não passo parâmetro, retorna boolean
 	v, ok := m["Answer"]

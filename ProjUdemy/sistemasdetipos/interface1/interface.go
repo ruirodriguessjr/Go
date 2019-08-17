@@ -41,11 +41,13 @@ func main() {
 	fmt.Println(coisa.toString())
 	imprimir(coisa)
 
-	coisa = produto{"Calça Jeans", 79.90}
+	coisa = produto{"Calça Jeans", 29.90}
 	fmt.Println(coisa.toString())
-	imprimir(coisa)
 
 	p2 := produto{"Calça Jeans", 179.90}
 	imprimir(p2)
+
+	p3 := produto{"Blusa", 139.65}
+	fmt.Println(p3.toString())
 
 }

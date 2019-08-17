@@ -23,4 +23,5 @@ func main() {
 	for k, v := range hosts {
 		fmt.Printf("%v ==> %v\n", k, v)
 	}
+
 }

@@ -21,6 +21,7 @@ func (f *ferrari) ligaTurbo() {
 func main() {
 
 	carro1 := ferrari{"F40", false, 0}
+	fmt.Println(carro1)
 	carro1.ligaTurbo()
 
 	var carro2 esportivo = &ferrari{"F40", false, 0}
