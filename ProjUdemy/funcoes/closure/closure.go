@@ -6,7 +6,7 @@ func closure() func() {
 
 	x := 10
 	var funcao = func() {
-	fmt.Println(x)
+		fmt.Println(x)
 
 	}
 
