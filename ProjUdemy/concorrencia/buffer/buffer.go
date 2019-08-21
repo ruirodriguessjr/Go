@@ -7,7 +7,7 @@ import (
 
 /*Ao tentar enviar o 4º dado para o buffer ele deixa de armazenar,
 pois o buffer está com sua capacidade no máximo quanto ao valor de capacidade declarado.
-Ele só vvolta a armazenar quando um channel for lido, e assim, liberando espaço dentro dele.*/
+Ele só volta a armazenar quando um channel for lido, e assim, liberando espaço dentro dele.*/
 func rotina(ch chan int) {
 	ch <- 1
 	ch <- 2

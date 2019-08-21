@@ -8,9 +8,9 @@ import (
 // Channel (canal) - é a forma de comunicação entre goroutines(processos),
 //ponto de sincronismo, quando dado não chega ele fica esperando chegar.
 
-// goroutine - ela roda de forma independente, já o channel vem de um processamento paralello,
+// goroutine - ela roda de forma independente, já o channel vem de um processamento paralelo,
 //fazendo assim com que antes do programa continuar a seguir sua execução,
-//o mesmo retorne todas as execuções da routina
+//o mesmo retorne todas as execuções da rotina
 //e dos channels para ai sim ele prosseguir com sua execução.
 
 // channel é um tipo assim como int, float64
