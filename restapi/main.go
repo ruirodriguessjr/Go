@@ -17,7 +17,7 @@ type Author struct {
 	Lastname  string `json:"lastname"`
 }
 
-// Init Books var as a slice Book struct
+// Init Books var book and as a slice Books struct
 
 var books []Book
 var book Book
