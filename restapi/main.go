@@ -20,6 +20,7 @@ type Author struct {
 // Init Books var as a slice Book struct
 
 var books []Book
+var book Book
 
 // Book Struct (Model)
 type Book struct {
@@ -34,7 +35,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 	// Content-Type faz com que ele retorne para mim
 	//qual o formato de retorno que eu espero
 	w.Header().Set("Content-Type", "application/json")
-	// NewEncoder e Encode eu estou escrevendo o meu responde
+	// NewEncoder e Encode eu estou escrevendo o meu response
 	// Dentro do meu objeto passando pelo formato Json
 	json.NewEncoder(w).Encode(books)
 }
@@ -57,7 +58,6 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 // Create a New Book
 func createBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	var book Book
 	_ = json.NewDecoder(r.Body).Decode((&book))
 	book.ID = strconv.Itoa(rand.Intn(10000000)) //Mock ID = not safe
 	books = append(books, book)
@@ -109,6 +109,10 @@ func main() {
 	router.HandleFunc("/api/books", createBook).Methods("POST")
 	router.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	router.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
+	// ListenAndServer é um servidor padrão do Go,
+	//onde eu passo a rota passando a sua porta de acesso,
+	// Todas as linguagens tem isso, pelo menos a maioria.
 	log.Fatal(http.ListenAndServe(":8000", router))
+	// log.Fatal caso ocorra um erro, ele aborta toda a minha conexão
 
 }
