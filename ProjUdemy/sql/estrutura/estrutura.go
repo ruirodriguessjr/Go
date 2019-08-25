@@ -23,7 +23,7 @@ func exec(db *sql.DB, sql string) sql.Result {
 func main() {
 
 	// Abrindo minha conexão com o Banco
-	db, err := sql.Open("mysql", "root:0000")
+	db, err := sql.Open("mysql", "root:@/")
 	if err != nil {
 		panic(err)
 	}
@@ -34,11 +34,11 @@ func main() {
 
 	// Executando minha função para manuseio dos comandos do banco de dados
 	exec(db, "create database if not exists cursogo")
-	//exec(db, "use cursogo")
-	//exec(db, "drop table if exists usuarios")
-	//exec(db, `create table usuarios (
-	//	id integer auto_increment,
-	//	nome varchar(80),
-	//	PRIMARY KEY (id)
-	//)`)
+	exec(db, "use cursogo")
+	exec(db, "drop table if exists usuarios")
+	exec(db, `create table usuarios (
+		id integer auto_increment,
+		nome varchar(80),
+		PRIMARY KEY (id)
+	)`)
 }
