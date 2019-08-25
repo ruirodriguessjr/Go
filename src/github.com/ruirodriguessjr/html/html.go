@@ -1,5 +1,12 @@
 package html
 
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"regexp"
+)
+
 // Título obtem o título de uma página html
 func Titulo(urls ...string) <-chan string {
 	c := make(chan string)
@@ -24,3 +31,4 @@ func Titulo(urls ...string) <-chan string {
 	}
 	// Retornando o channel
 	return c
+}

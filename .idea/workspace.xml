@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82210ffc-60d7-4781-bb94-20f05878233f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjUdemy/concorrencia/generator/generator.go" beforeDir="false" afterPath="$PROJECT_DIR$/ProjUdemy/concorrencia/generator/generator.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/restapi.exe" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/restapi.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjUdemy/concorrencia/multiplexar/multiplexar.go" beforeDir="false" afterPath="$PROJECT_DIR$/ProjUdemy/concorrencia/multiplexar/multiplexar.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjUdemy/pacote/html/html.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/windows_amd64/github.com/ruirodriguessjr/Goarea.a" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/windows_amd64/github.com/ruirodriguessjr/Goarea.a" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +17,14 @@
     <favorites_list name="Go" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>github</find>
     </findStrings>
   </component>
-  <component name="GOROOT" path="C:/GO_ENV/go" />
+  <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -40,10 +38,11 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="-13" />
+    <option name="width" value="982" />
+    <option name="height" value="1033" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -81,13 +80,6 @@
               <item name="ProjUdemy" type="462c0819:PsiDirectoryNode" />
               <item name="pacote" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Go" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Go" type="462c0819:PsiDirectoryNode" />
-              <item name="ProjUdemy" type="462c0819:PsiDirectoryNode" />
-              <item name="pacote" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -101,6 +93,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -164,9 +157,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49444443" visible="true" weight="0.15222672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49444443" visible="true" weight="0.15436241" />
       <window_info id="Structure" order="1" sideWeight="0.50555557" side_tool="true" weight="0.15222672" />
       <window_info id="Favorites" order="2" sideWeight="0.50185186" side_tool="true" weight="0.14736842" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -255,13 +248,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjUdemy/pacote/html/html.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjUdemy/pacote/html/html.go" />
     <entry file="file://$PROJECT_DIR$/ProjUdemy/concorrencia/multiplexar/multiplexar.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">

@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 
+	// Dependencia do pacote tem que estar em repositório próprio já criado ou clonado
+	html "github.com/ruirodriguessjr/html"
+)
 
 // Origem podendo ser só de leitura
 // Destino não pode ser somente de leitura,
