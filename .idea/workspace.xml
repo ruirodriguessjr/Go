@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82210ffc-60d7-4781-bb94-20f05878233f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjUdemy/concorrencia/multiplexar/multiplexar.go" beforeDir="false" afterPath="$PROJECT_DIR$/ProjUdemy/concorrencia/multiplexar/multiplexar.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjUdemy/pacote/html/html.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/windows_amd64/github.com/ruirodriguessjr/Goarea.a" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/windows_amd64/github.com/ruirodriguessjr/Goarea.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,9 +35,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-13" />
-    <option name="width" value="982" />
-    <option name="height" value="1033" />
+    <option name="x" value="-14" />
+    <option name="width" value="983" />
+    <option name="height" value="1034" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -48,7 +45,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,6 +80,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -94,7 +91,7 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/GO_ENV/workspace/src/github.dxc.com/clarobr/digital-services" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -157,9 +154,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49444443" visible="true" weight="0.15436241" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49444443" visible="true" weight="0.15708502" />
       <window_info id="Structure" order="1" sideWeight="0.50555557" side_tool="true" weight="0.15222672" />
       <window_info id="Favorites" order="2" sideWeight="0.50185186" side_tool="true" weight="0.14736842" />
       <window_info anchor="bottom" id="Message" order="0" />
