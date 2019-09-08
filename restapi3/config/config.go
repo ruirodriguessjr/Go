@@ -1,5 +1,3 @@
-// arquivo de configuração, ele irá ler o dados do arquivo config.toml
-
 package config
 
 import (
@@ -8,6 +6,7 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+// Config criando uma struct para passarmos os dados de conexão do nosso db
 type Config struct {
 	Server   string
 	Database string

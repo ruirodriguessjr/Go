@@ -1,9 +1,8 @@
-// nossa model
-
 package models
 
 import "gopkg.in/mgo.v2/bson"
 
+// Movie struct
 type Movie struct {
 	ID          bson.ObjectId `bson:"_id" json:"id"`
 	Name        string        `bson:"name" json:"name"`

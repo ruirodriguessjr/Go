@@ -10,6 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// Trainer Struct
 type Trainer struct {
 	Name string
 	Age  int
@@ -49,9 +50,6 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
-
-	// Insert multiple documents
-	trainers := []interface{}{misty, brock}
 
 	insertManyResult, err := collection.InsertMany(context.TODO(), trainers)
 	if err != nil {
@@ -116,12 +114,12 @@ func main() {
 	fmt.Printf("Found multiple documents (array of pointers): %+v\n", results)
 
 	// Delete all the documents in the collection
-	deleteResult, err := collection.DeleteMany(context.TODO(), bson.D{{}})
+	/*deleteResult, err := collection.DeleteMany(context.TODO(), bson.D{{}})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Deleted %v documents in the trainers collection\n", deleteResult.DeletedCount)
+	fmt.Printf("Deleted %v documents in the trainers collection\n", deleteResult.DeletedCount)*/
 
 	// Close the connection once no longer needed
 	err = client.Disconnect(context.TODO())

@@ -1,1 +1,2 @@
-// passar os dados de conexão do nosso db
+server="localhost"
+database="movies_db"

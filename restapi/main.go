@@ -1,14 +1,18 @@
 package main
 
 import (
+	"context"
 	"encoding/json" // O pacote json implementa a codificação e a decodificação de JSON
-	"log"           //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
-	"net/http"      // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
+	"fmt"
+	"log"      //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
+	"net/http" // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
 
 	"math/rand" // Pacote aritmético/ rand gera número aleatório
 	"strconv"   // O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
 
 	"github.com/gorilla/mux" // Dependência do MUX
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Author Struct
@@ -104,6 +108,34 @@ func main() {
 	books = append(books, Book{ID: "2", Isbn: "843921", Title: "Book Two", Author: &Author{Firstname: "Steve", Lastname: "Smith"}})
 	books = append(books, Book{ID: "3", Isbn: "123654", Title: "Book Tree", Author: &Author{Firstname: "Michael", Lastname: "Jackson"}})
 	books = append(books, Book{ID: "4", Isbn: "654532", Title: "Book Four", Author: &Author{Firstname: "James", Lastname: "Hetfield"}})
+
+	// Set client options
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+
+	// Connect to MongoDB
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Check the connection
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Connected to MongoDB!")
+
+	// Get a handle for your collection
+	collection := client.Database("Books").Collection("Book")
+
+	// Insert multiple documents
+	Book := []interface{}{books}
+	insertManyResult, err := collection.InsertMany(context.TODO(), Book)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Inserted multiple Books: ", insertManyResult.InsertedIDs)
 
 	// Route Handlers / Endpoints(tipo url) - Função Handler manipula aquela requisição
 	router.HandleFunc("/api/books", getBooks).Methods("GET")

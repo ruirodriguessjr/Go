@@ -1,15 +1,14 @@
-// será o nosso repositório, aqui nós iremos interagir com o mongoDB
-
 package dao
 
 import (
 	"log"
 
-	. "github.com/programadriano/go-restapi/models"
-	mgo "gopkg.in/mgo.v2"
+	. "github.com/ruirodriguessjr/Golang/restapi3/models"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
+// MoviesDAO type strcut
 type MoviesDAO struct {
 	Server   string
 	Database string
@@ -17,10 +16,12 @@ type MoviesDAO struct {
 
 var db *mgo.Database
 
+// COLLECTION type de coleção
 const (
 	COLLECTION = "movies"
 )
 
+// Connect with server
 func (m *MoviesDAO) Connect() {
 	session, err := mgo.Dial(m.Server)
 	if err != nil {
