@@ -102,6 +102,8 @@ func main() {
 	// Mock Data - @todo - implement DB
 	books = append(books, Book{ID: "1", Isbn: "447539", Title: "Book One", Author: &Author{Firstname: "John", Lastname: "Doe"}})
 	books = append(books, Book{ID: "2", Isbn: "843921", Title: "Book Two", Author: &Author{Firstname: "Steve", Lastname: "Smith"}})
+	books = append(books, Book{ID: "3", Isbn: "123654", Title: "Book Tree", Author: &Author{Firstname: "Michael", Lastname: "Jackson"}})
+	books = append(books, Book{ID: "4", Isbn: "654532", Title: "Book Four", Author: &Author{Firstname: "James", Lastname: "Hetfield"}})
 
 	// Route Handlers / Endpoints(tipo url) - Função Handler manipula aquela requisição
 	router.HandleFunc("/api/books", getBooks).Methods("GET")

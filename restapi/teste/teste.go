@@ -6,15 +6,13 @@ import (
 	"fmt"
 	"log"      //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
 	"net/http" // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
-	"time"
-
-	"go.mongodb.org/mongo-driver/bson"
 
 	"math/rand" // Pacote aritmético/ rand gera número aleatório
 	"strconv"   // O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
 
-	"github.com/gorilla/mux"            // Dependência do MUX
-	"go.mongodb.org/mongo-driver/mongo" // Dependência do Mongo
+	"github.com/gorilla/mux" // Dependência do MUX
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Author Struct
@@ -27,9 +25,6 @@ type Author struct {
 
 var books []Book
 var book Book
-
-// Criation var for my connection
-var client *mongo.Client
 
 // Book Struct (Model)
 type Book struct {
@@ -44,26 +39,6 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 	// Content-Type faz com que ele retorne para mim
 	//qual o formato de retorno que eu espero
 	w.Header().Set("Content-Type", "application/json")
-	collection := client.Database("MyBooks").Collection("books")
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	cursor, err := collection.Find(ctx, bson.M{})
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "Message: "` + err.Error() + `" }`))
-		return
-	}
-	defer cursor.Close(ctx)
-	for cursor.Next(ctx) {
-		var book Book
-		cursor.Decode(&book)
-		books = append(books, book)
-	}
-	if err := cursor.Err(); err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "message": "` + err.Error() + `" }`))
-		return
-	}
-
 	// NewEncoder e Encode eu estou escrevendo o meu response
 	// Dentro do meu objeto passando pelo formato Json
 	json.NewEncoder(w).Encode(books)
@@ -74,23 +49,12 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r) // Get Params
 	// Loop through books and find with id
-	collection := client.Database("MyBooks").Collection("books")
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	cursor, err := collection.Find(ctx, bson.M{})
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "message": "` + err.Error() + `" }`))
-		return
-	}
-	defer cursor.Close(ctx)
-
 	for _, item := range books {
 		if item.ID == params["id"] {
 			json.NewEncoder(w).Encode(item)
 			return
 		}
 	}
-
 	json.NewEncoder(w).Encode(&Book{})
 
 }
@@ -99,12 +63,9 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 func createBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewDecoder(r.Body).Decode((&book))
-	collection := client.Database("MyBooks").Collection("books")
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	result, _ := collection.InsertOne(ctx, book)
 	book.ID = strconv.Itoa(rand.Intn(10000000)) //Mock ID = not safe
 	books = append(books, book)
-	json.NewEncoder(w).Encode(result)
+	json.NewEncoder(w).Encode(book)
 }
 
 //Update Book
@@ -139,14 +100,52 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("Starting the application...")
-
 	// Init Route
 	router := mux.NewRouter()
+
+	// Set client options
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+
+	// Connect to MongoDB
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Check the Connection
+	err = client.Ping(context.TODO(), nil)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Connected to MongoDB!")
+
+	collection := client.Database("Books").Collection("Book")
+
+	// Check the Disconnection
+	err = client.Disconnect(context.TODO())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connection to MongoDB closed.")
 
 	// Mock Data - @todo - implement DB
 	books = append(books, Book{ID: "1", Isbn: "447539", Title: "Book One", Author: &Author{Firstname: "John", Lastname: "Doe"}})
 	books = append(books, Book{ID: "2", Isbn: "843921", Title: "Book Two", Author: &Author{Firstname: "Steve", Lastname: "Smith"}})
+	books = append(books, Book{ID: "3", Isbn: "123654", Title: "Book Tree", Author: &Author{Firstname: "Michael", Lastname: "Jackson"}})
+	books = append(books, Book{ID: "4", Isbn: "654532", Title: "Book Four", Author: &Author{Firstname: "James", Lastname: "Hetfield"}})
+
+	Books := []interface{}{books}
+
+	insertManyResult, err := collection.InsertMany(context.TODO(), Books)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Inserted multiple documents: ", insertManyResult.InsertedIDs)
 
 	// Route Handlers / Endpoints(tipo url) - Função Handler manipula aquela requisição
 	router.HandleFunc("/api/books", getBooks).Methods("GET")
@@ -157,7 +156,7 @@ func main() {
 	// ListenAndServer é um servidor padrão do Go,
 	//onde eu passo a rota passando a sua porta de acesso,
 	// Todas as linguagens tem isso, pelo menos a maioria.
-	log.Fatal(http.ListenAndServe(":9000", router))
+	log.Fatal(http.ListenAndServe(":8000", router))
 	// log.Fatal caso ocorra um erro, ele aborta toda a minha conexão
 
 }
