@@ -8,9 +8,9 @@ import (
 	"gopkg.in/mgo.v2/bson"
 
 	"github.com/gorilla/mux"
-	. "github.com/ruirodriguessjr/restapi4/config"
-	. "github.com/ruirodriguessjr/restapi4/dao"
-	. "github.com/ruirodriguessjr/restapi4/models"
+	. "github.com/ruirodriguessjr/Golang/restapi4/config/"
+	. "github.com/ruirodriguessjr/Golang/restapi4/dao/"
+	. "github.com/ruirodriguessjr/Golang/restapi4/models/"
 )
 
 var config = Config{}

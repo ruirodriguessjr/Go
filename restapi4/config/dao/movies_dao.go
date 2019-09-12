@@ -3,7 +3,7 @@ package dao
 import (
 	"log"
 
-	. "github.com/ruirodriguessjr/restapi4/models"
+	. "github.com/ruirodriguessjr/Golang/restapi4/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
