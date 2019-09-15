@@ -1,14 +1,18 @@
 package main
 
 import (
+	"context"
 	"encoding/json" // O pacote json implementa a codificação e a decodificação de JSON
-	"log"           //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
-	"net/http"      // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
+	"fmt"
+	"log"      //O log de pacotes implementa um pacote de log simples. Ele define um tipo, Logger, com métodos para formatação de saída.
+	"net/http" // O pacote http fornece implementações de cliente e servidor HTTP. Get, Head, Post e PostForm fazem solicitações HTTP (ou HTTPS)
 
 	"math/rand" // Pacote aritmético/ rand gera número aleatório
 	"strconv"   // O pacote strconv implementa conversões de x para representações de strings de tipos de dados básicos.
 
 	"github.com/gorilla/mux" // Dependência do MUX
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Author Struct
@@ -96,6 +100,24 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	// Set client options
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+
+	// Connect to MongoDB
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Check the connection
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Connected to MongoDB!")
+
 	// Init Route
 	router := mux.NewRouter()
 
